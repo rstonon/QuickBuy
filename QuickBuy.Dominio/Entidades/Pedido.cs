@@ -32,12 +32,17 @@ namespace QuickBuy.Dominio.Entidades
 
             if (!ItensPedido.Any())
             {
-                AdicionarCritica("Crítica: É necessário pelo menos um item.");
+                AdicionarCritica("É necessário pelo menos um item.");
             }
 
             if (!string.IsNullOrEmpty(CEP))
             {
-                AdicionarCritica("Crítica: CEP deve ser preenchido.");
+                AdicionarCritica("CEP deve ser preenchido.");
+            }
+
+            if (FormaPagamentoId == 0)
+            {
+                AdicionarCritica("Forma de pagamento obrigatória.");
             }
         }
     }
